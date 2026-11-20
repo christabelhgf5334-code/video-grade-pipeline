@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频调色管线"
+  short_description: "HDR 色调映射、风格 LUT、镜头匹配与 Resolve 六节点 PowerGrade"
+  default_prompt: "使用 $video-grade-pipeline 对视频素材执行源头判读、Resolve 或 ffmpeg 调色、镜头匹配、成片渲染与交付校验。"

@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "node_count": 6,
+  "node_labels": [
+    "01 SOURCE",
+    "02 SHOT BALANCE",
+    "03 TONE MAP",
+    "04 SKIN PROTECT",
+    "05 LOOK",
+    "06 OUTPUT TRIM"
+  ],
+  "master_drx": "assets/powergrades/runtime_template.drx",
+  "pipeline_luts": {
+    "tone_map": "assets/luts/generated/tone_map.cube",
+    "skin_protect": "assets/luts/generated/skin_protect.cube",
+    "output_trim": "assets/luts/generated/output_trim.cube"
+  },
+  "looks": {
+    "documentary_resolve": {
+      "name": "Documentary Refined",
+      "drx": "assets/powergrades/documentary_resolve.drx",
+      "look_lut": "assets/luts/generated/documentary.cube",
+      "sha256": "990eba6ae0abd9fe56e19f6d2041ebd955be323b9a248875a8c235a50a707159"
+    },
+    "warm_human": {
+      "name": "Warm Human",
+      "drx": "assets/powergrades/warm_human.drx",
+      "look_lut": "assets/luts/generated/natural_warm.cube",
+      "sha256": "61042cbefae8dae215bb72ce3e098012d69db5bcb57f3515cf678b0a553fc20e"
+    },
+    "cool_editorial": {
+      "name": "Cool Editorial",
+      "drx": "assets/powergrades/cool_editorial.drx",
+      "look_lut": "assets/luts/generated/cool_editorial.cube",
+      "sha256": "8535991dd81de50a943316479e6815b63debc63e73a91f91066845adc2dff0a8"
+    },
+    "market_resolve": {
+      "name": "Market / Food",
+      "drx": "assets/powergrades/market_resolve.drx",
+      "look_lut": "assets/luts/generated/market_rich.cube",
+      "sha256": "af36cabff16e6205caca26fe00f0c97f9c9de0b5989112900776bfb212a34c02"
+    },
+    "portrait_soft": {
+      "name": "Soft Portrait",
+      "drx": "assets/powergrades/portrait_soft.drx",
+      "look_lut": "assets/luts/generated/soft_portrait.cube",
+      "sha256": "0be28c1f17b9ec990a1f97ea531bfa603b74333454946c1fd91b8b6905772582"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_note": "街头美食暖调，已在真实素材（铁板小吃摊、暖色街灯、深肤色前臂）上验证。primary_chain = 校正基底 + 创作层，全部是逐像素点运算。secondaries 的顺序不影响结果（各自独立累加）。",
+
+  "size": 65,
+
+  "primary_chain": "eq=contrast=1.045:saturation=1.03:gamma=1.01,colorbalance=bs=0.012:bm=0.022:bh=0.018,colorbalance=rs=0.008:gs=0.002:bs=-0.014:rm=0.034:gm=0.002:bm=-0.030:rh=0.022:gh=0.006:bh=-0.022,eq=contrast=1.09:saturation=1.10:gamma=0.99,vibrance=intensity=0.16",
+
+  "secondaries": [
+    {
+      "name": "food_glow",
+      "_why": "食物 S≈0.89 已接近上限，再推饱和只会溢色。阈值放在 0.80 以上是为了排除皮肤受光面（S 可达 0.9）——实测该项对前臂的影响只有 1.22/255。",
+      "hue": 38, "hue_full": 14, "hue_zero": 28,
+      "sat_min": 0.80, "sat_knee": 0.93,
+      "d_hue": -1.5, "sat_mul": 0.020, "lum_mul": 0.038
+    },
+    {
+      "name": "cool_background_backoff",
+      "_why": "画面里唯一的冷色（塑料袋/玻璃/不锈钢），没有任何物体共享这个色相，压它不会误伤皮肤。这是主体分离的主要来源。",
+      "hue": 205, "hue_full": 22, "hue_zero": 40,
+      "d_hue": 4.0, "sat_mul": -0.40, "lum_mul": -0.15
+    },
+    {
+      "name": "green_freshness",
+      "hue": 110, "hue_full": 30, "hue_zero": 52,
+      "lum_min": 0.10, "lum_knee": 0.20,
+      "sat_mul": 0.11, "lum_mul": 0.030
+    },
+    {
+      "name": "red_rail_settle",
+      "hue": 2, "hue_full": 10, "hue_zero": 24,
+      "sat_min": 0.45, "sat_knee": 0.62,
+      "sat_mul": 0.055, "lum_mul": -0.065
+    },
+    {
+      "name": "highlight_rolloff",
+      "lum_min": 0.80, "lum_knee": 0.96,
+      "lum_mul": -0.030
+    },
+    {
+      "name": "shadow_degreen",
+      "_why": "铁板暗部带绿调，降饱和去掉脏感。",
+      "lum_max": 0.20, "lum_knee_max": 0.09,
+      "sat_min": 0.12, "sat_knee": 0.32,
+      "sat_mul": -0.26
+    },
+    {
+      "name": "shadow_deepen",
+      "lum_max": 0.17, "lum_knee_max": 0.04,
+      "lum_mul": -0.10
+    }
+  ],
+
+  "filmic": {
+    "_why": "曲线给层次；肩部压缩让高光不撞白；高光降饱和让霓虹和金属反光不刺眼；global_sat 只压非暖色域，皮肤和食物保持原强度（整体克制/主体浓）；肤色锁定把 25–42° 拉回肤色线，压掉烤橙；分离色调给冷暖结构。",
+    "curve": 0.20,
+    "shoulder": 0.032,
+    "toe": 0.004,
+    "hi_desat": 0.26,
+    "global_sat": 0.90,
+    "sat_exempt_hue": {"centre": 34, "full": 20, "zero": 38},
+    "skin_lock": {"centre": 33.5, "full": 10, "zero": 19, "pull": 0.40},
+    "split": {"warm": [0.011, 0.003, -0.009], "cool": [-0.007, -0.002, 0.012]}
+  }
+}

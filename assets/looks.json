@@ -1,0 +1,86 @@
+{
+  "default_order": [
+    "documentary",
+    "filmic",
+    "natural_warm",
+    "cool_editorial",
+    "market_rich",
+    "soft_portrait"
+  ],
+  "looks": {
+    "documentary": {
+      "name": "Documentary Clear",
+      "base_lut": "assets/luts/documentary_clear.cube",
+      "ops": {},
+      "scene_tags": ["people", "market", "indoor", "architecture", "nature", "document"],
+      "light_tags": ["daylight", "overcast", "mixed", "fluorescent", "night"],
+      "risk_tags": ["signage_highlight", "neutral_white"],
+      "description": "Neutral reference with clear midtones and controlled highlights."
+    },
+    "filmic": {
+      "name": "Clean Filmic",
+      "base_lut": "assets/luts/clean_filmic.cube",
+      "ops": {},
+      "scene_tags": ["people", "atmosphere", "architecture"],
+      "light_tags": ["overcast", "mixed", "backlight"],
+      "risk_tags": ["skin"],
+      "description": "Soft filmic contrast with restrained color."
+    },
+    "natural_warm": {
+      "name": "Natural Warm",
+      "base_lut": "assets/luts/documentary_clear.cube",
+      "ops": {
+        "temperature": 0.025,
+        "brightness": 0.004,
+        "contrast": 1.02,
+        "saturation": 1.03,
+        "highlight_rolloff": 0.02
+      },
+      "scene_tags": ["people", "market", "indoor", "food"],
+      "light_tags": ["overcast", "fluorescent", "mixed"],
+      "risk_tags": ["skin"],
+      "description": "A restrained warm correction for cool light and skin-led scenes."
+    },
+    "cool_editorial": {
+      "name": "Cool Editorial",
+      "base_lut": "assets/luts/documentary_clear.cube",
+      "ops": {
+        "temperature": -0.035,
+        "contrast": 1.05,
+        "saturation": 0.95,
+        "shadow_tint": [0.0, 0.0, 0.014],
+        "highlight_rolloff": 0.025
+      },
+      "scene_tags": ["architecture", "urban", "document"],
+      "light_tags": ["overcast", "mixed", "night"],
+      "risk_tags": ["signage_highlight"],
+      "description": "Clean urban contrast without a heavy teal-orange treatment."
+    },
+    "market_rich": {
+      "name": "Market / Food Rich",
+      "base_lut": "assets/luts/documentary_clear.cube",
+      "ops": {
+        "contrast": 1.04,
+        "saturation": 1.08,
+        "highlight_rolloff": 0.02
+      },
+      "scene_tags": ["market", "food", "products", "people"],
+      "light_tags": ["daylight", "overcast", "mixed", "fluorescent"],
+      "risk_tags": ["skin", "signage_highlight"],
+      "description": "Controlled product and food color with a more vivid market feel."
+    },
+    "soft_portrait": {
+      "name": "Soft Portrait",
+      "base_lut": "assets/luts/clean_filmic.cube",
+      "ops": {
+        "brightness": 0.012,
+        "saturation": 0.98,
+        "highlight_rolloff": 0.06
+      },
+      "scene_tags": ["people", "portrait"],
+      "light_tags": ["backlight", "overcast", "mixed"],
+      "risk_tags": ["skin", "signage_highlight"],
+      "description": "Gentle highlight rolloff and restrained skin color."
+    }
+  }
+}

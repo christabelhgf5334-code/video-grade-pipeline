@@ -1,0 +1,14 @@
+{
+  "documentary": {
+    "name": "Documentary Clear",
+    "output_suffix": "Documentary_Clear",
+    "lut": "assets/luts/documentary_clear.cube",
+    "description": "Default. Expands the compressed black point, clears the midtones, protects highlights, keeps whites neutral, and avoids a warm or oversaturated web look."
+  },
+  "filmic": {
+    "name": "Clean Filmic",
+    "output_suffix": "Clean_Filmic",
+    "lut": "assets/luts/clean_filmic.cube",
+    "description": "A softer filmic S-curve with gentle highlight rolloff, restrained green, cool shadows, and slightly warm highlights."
+  }
+}

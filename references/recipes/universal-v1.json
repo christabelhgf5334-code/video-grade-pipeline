@@ -1,0 +1,63 @@
+{
+  "_note": "通用版：从 warm-appetite 派生，暖色偏移减半、饱和度收敛、高光保护加强。目的是让同一条 LUT 用在美食/风光/人像/城市都不出错，代价是不再针对性拉满。",
+
+  "size": 65,
+
+  "primary_chain": "eq=contrast=1.030:saturation=1.00:gamma=1.00,colorbalance=bs=0.008:bm=0.014:bh=0.010,colorbalance=rs=0.004:gs=0.001:bs=-0.007:rm=0.017:gm=0.001:bm=-0.015:rh=0.011:gh=0.003:bh=-0.011,eq=contrast=1.050:saturation=1.02:gamma=1.00,vibrance=intensity=0.08",
+
+  "secondaries": [
+    {
+      "name": "warm_subject_lift",
+      "_why": "原版 +2% 饱和 / +3.8% 亮度，在美食上刚好，套到草莓番茄上过界。减半。",
+      "hue": 38, "hue_full": 14, "hue_zero": 28,
+      "sat_min": 0.80, "sat_knee": 0.93,
+      "d_hue": -1.0, "sat_mul": 0.008, "lum_mul": 0.026
+    },
+    {
+      "name": "cool_background_backoff",
+      "_why": "分离感的主要来源。原版 -40% 饱和太狠，通用版收到 -22%，避免把天空压成灰。",
+      "hue": 205, "hue_full": 22, "hue_zero": 40,
+      "d_hue": 2.0, "sat_mul": -0.22, "lum_mul": -0.09
+    },
+    {
+      "name": "green_ctrl",
+      "hue": 110, "hue_full": 30, "hue_zero": 52,
+      "lum_min": 0.10, "lum_knee": 0.20,
+      "sat_mul": 0.055, "lum_mul": 0.018
+    },
+    {
+      "name": "red_ctrl",
+      "hue": 2, "hue_full": 10, "hue_zero": 24,
+      "sat_min": 0.45, "sat_knee": 0.62,
+      "sat_mul": 0.028, "lum_mul": -0.038
+    },
+    {
+      "name": "highlight_rolloff",
+      "lum_min": 0.80, "lum_knee": 0.96,
+      "lum_mul": -0.030
+    },
+    {
+      "name": "shadow_degreen",
+      "lum_max": 0.20, "lum_knee_max": 0.09,
+      "sat_min": 0.12, "sat_knee": 0.32,
+      "sat_mul": -0.18
+    },
+    {
+      "name": "shadow_deepen",
+      "lum_max": 0.17, "lum_knee_max": 0.04,
+      "lum_mul": -0.08
+    }
+  ],
+
+  "filmic": {
+    "_why": "curve 略降给更多层次；shoulder 加大到 0.040 保护高光（瀑布、灯管）；分离色调减半，避免所有画面都偏橙。",
+    "curve": 0.16,
+    "shoulder": 0.040,
+    "toe": 0.003,
+    "hi_desat": 0.20,
+    "global_sat": 0.95,
+    "sat_exempt_hue": {"centre": 34, "full": 18, "zero": 34},
+    "skin_lock": {"centre": 33.5, "full": 10, "zero": 19, "pull": 0.28},
+    "split": {"warm": [0.006, 0.002, -0.005], "cool": [-0.004, -0.001, 0.006]}
+  }
+}
